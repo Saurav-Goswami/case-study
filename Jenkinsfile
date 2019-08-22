@@ -16,12 +16,6 @@ pipeline {
 
                 '''
             }
-
-            post {
-                success {
-                   archiveArtifacts artifacts: 'discovery-service/target/*.jar', fingerprint: true
-                }
-            }
         }
 
         stage('Test') {
