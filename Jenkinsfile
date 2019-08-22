@@ -18,7 +18,7 @@ pipeline {
             }
             post {
                 success {
-                   archiveArtifacts artifacts: 'discovery-service/target/*.jar, config-service/target/*.jar, department-service/target/*.jar, employee-service/target/*.jar, gateway-service/target/*.jar, organization-service/target/*.jar, proxy-service/target/*.jar', fingerprint: true
+                   archiveArtifacts artifacts: 'discovery-service/target/*.jar', fingerprint: true
                 }
             }
 
