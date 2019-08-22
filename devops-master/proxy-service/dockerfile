@@ -1,0 +1,3 @@
+From openjdk:8
+copy ./target/proxy-service-1.0-SNAPSHOT.jar proxy-service-1.0-SNAPSHOT.jar
+CMD ["java","-jar","proxy-service-1.0-SNAPSHOT.jar"]

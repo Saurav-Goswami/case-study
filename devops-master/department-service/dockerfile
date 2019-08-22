@@ -1,0 +1,3 @@
+From openjdk:8
+copy ./target/department-service-1.0-SNAPSHOT.jar department-service-1.0-SNAPSHOT.jar
+CMD ["java","-jar","department-service-1.0-SNAPSHOT.jar"]

@@ -1,0 +1,103 @@
+version: '3'
+
+services:
+  discovery:
+    build:
+      context: ./discovery-service
+      dockerfile: dockerfile
+    container_name: discovery
+    networks:
+      - java-spring-boot
+    expose:
+        - 8088
+    ports:
+      - "8088:8088
+
+  config:
+    build:
+      context: ./config-service
+      dockerfile: dockerfile
+    container_name: config-service
+    expose:
+        - 8088
+    ports:
+      - "8088:8088
+    depends_on:
+      - discovery
+    networks: 
+      - java-spring-boot
+    
+
+  department:
+    build:
+      context: ./department-service
+      dockerfile: dockerfile
+    container_name: department-service
+    expose:
+        - 8088
+    ports:
+      - "8088:8088
+    depends_on:
+      - discovery
+    networks: 
+      - java-spring-boot
+
+   employee:
+    build:
+      context: ./employee-service
+      dockerfile: dockerfile
+    container_name: employee-service
+    expose:
+        - 8088
+    ports:
+      - "8088:8088
+    depends_on:
+      - discovery
+    networks: 
+      - java-spring-boot
+   
+   gateway:
+    build:
+      context: ./gateway-service
+      dockerfile: dockerfile
+    container_name: gateway-service
+    expose:
+        - 8088
+    ports:
+      - "8088:8088
+    depends_on:
+      - discovery
+    networks: 
+      - java-spring-boot
+
+  organization:
+    build:
+      context: ./organization-service
+      dockerfile: dockerfile
+    container_name: organization-service
+    expose:
+        - 8088
+    ports:
+      - "8088:8088
+    depends_on:
+      - discovery
+    networks: 
+      - java-spring-boot
+
+  proxy:
+    build:
+      context: ./proxy-service
+      dockerfile: dockerfile
+    container_name: proxy-service
+    expose:
+        - 8088
+    ports:
+      - "8088:8088
+    depends_on:
+      - discovery
+    networks: 
+      - java-spring-boot
+
+networks:
+  java-spring-boot:
+    

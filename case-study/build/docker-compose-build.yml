@@ -1,0 +1,43 @@
+version: '3'
+services:
+  discovery-service:
+    image: "discovery-service"
+    build:
+      context: ./discovery-service
+      dockerfile: Dockerfile-Java
+
+  config-service:
+    image: "config-service"
+    build:
+      context: ./config-service
+      dockerfile: Dockerfile-Java
+
+  department-service:
+    image: "department-service"
+    build:
+      context: ./department-service
+      dockerfile: Dockerfile-Java
+
+  employee-service:
+    image: "employee-service"
+    build:
+      context: ./employee-service
+      dockerfile: Dockerfile-Java
+
+  gateway-service:
+    image: "gateway-service"
+    build:
+      context: ./gateway-service
+      dockerfile: Dockerfile-Java
+
+  proxy-service:
+    image: "proxy-service"
+    build:
+      context: ./proxy-service
+      dockerfile: Dockerfile-Java
+
+  organization-service:
+    image: "organization-service"
+    build:
+      context: ./organization-service
+      dockerfile: Dockerfile-Java

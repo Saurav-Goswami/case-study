@@ -1,0 +1,102 @@
+version: '3'
+
+services:
+  discovery:
+    build:
+      context: ./build/discovery-service
+      dockerfile: Dockerfile-Java
+    container_name: discovery
+    expose:
+      - 8080
+    ports:
+      - "82:8080"
+    networks:
+      - java-project
+
+  config:
+    build:
+      context: ./build/config-service
+      dockerfile: Dockerfile-Java
+    container_name: config-service
+    expose:
+      - 8080
+    ports:
+      - "83:8080"
+    depends_on:
+      - discovery
+    networks: 
+      - java-project
+    
+  department:
+    build:
+      context: ./build/department-service
+      dockerfile: Dockerfile-Java
+    container_name: department-service
+    expose:
+      - 8080
+    ports:
+      - "84:8080"
+    depends_on:
+      - discovery
+    networks: 
+      - java-project
+
+  employee:
+    build:
+      context: ./build/employee-service
+      dockerfile: Dockerfile-Java
+    container_name: employee-service
+    expose:
+      - 8080
+    ports:
+      - "85:8080"
+    depends_on:
+      - discovery
+    networks: 
+      - java-project
+   
+  gateway:
+    build:
+      context: ./build/gateway-service
+      dockerfile: Dockerfile-Java
+    container_name: gateway-service
+    expose:
+      - 8080
+    ports:
+      - "86:8080"
+    depends_on:
+      - discovery
+    networks: 
+      - java-project
+
+  organization:
+    build:
+      context: ./build/organization-service
+      dockerfile: Dockerfile-Java
+    container_name: organization-service
+    expose:
+      - 8080
+    ports:
+      - "87:8080"
+    depends_on:
+      - discovery
+    networks: 
+      - java-project
+
+  proxy:
+    build:
+      context: ./build/proxy-service
+      dockerfile: Dockerfile-Java
+    container_name: proxy-service
+    expose:
+      - 8080
+    ports:
+      - "88:8080"
+    depends_on:
+      - discovery
+    networks: 
+      - java-project
+
+networks:
+  java-project:
+

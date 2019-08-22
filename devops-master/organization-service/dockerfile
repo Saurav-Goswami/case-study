@@ -1,0 +1,3 @@
+From openjdk:8
+copy ./target/organization-service-1.0-SNAPSHOT.jar organization-service-1.0-SNAPSHOT.jar
+CMD ["java","-jar","organization-service-1.0-SNAPSHOT.jar"]
